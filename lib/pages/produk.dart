@@ -70,33 +70,34 @@ class _ProdukState extends State<Produk> {
                   itemCount: _data.length,
                   itemBuilder: (context, index) {
                     return Card(
-                        elevation: 2,
-                        shadowColor: Colors.black,
-                        color: Colors.white,
-                        surfaceTintColor: Colors.white,
-                        child: ListTile(
-                          leading: Text('${index + 1}'),
-                          title: Text(_data[index].nama_barang),
-                          subtitle: Row(
-                            children: [
-                              const Text('Harga : Rp. '),
-                              Text(_data[index].harga_barang),
-                            ],
+                      elevation: 2,
+                      shadowColor: Colors.black,
+                      color: Colors.white,
+                      surfaceTintColor: Colors.white,
+                      child: ListTile(
+                        leading: Text('${index + 1}'),
+                        title: Text(_data[index].nama_barang),
+                        subtitle: Row(
+                          children: [
+                            const Text('Harga : Rp. '),
+                            Text(_data[index].harga_barang),
+                          ],
+                        ),
+                        trailing: IconButton(
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content:
+                                        Text('Tombol masih belum bekerja!')));
+                          },
+                          icon: const Icon(
+                            Icons.delete,
+                            color: Colors.red,
                           ),
-                          trailing: IconButton(
-                            onPressed: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content:
-                                          Text('Tombol masih belum bekerja!')));
-                            },
-                            icon: const Icon(
-                              Icons.delete,
-                              color: Colors.red,
-                            ),
-                            tooltip: 'Hapus Data',
-                          ),
-                        ));
+                          tooltip: 'Hapus Data',
+                        ),
+                      ),
+                    );
                   },
                 ),
               )
